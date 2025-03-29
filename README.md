@@ -17,7 +17,7 @@
 
 ## Overview
 
-This React application integrates with the Reqres API to perform basic user management functions such as authentication, user listing, and CRUD operations. The app is divided into three levels of increasing complexity.
+This React application integrates with the Reqres API to perform basic user management functions such as authentication, user listing, and CRUD operations. The app is divided into three levels of increasing complexity, ensuring a structured and scalable implementation.
 
 ### Base API URL
 
@@ -33,7 +33,7 @@ This React application integrates with the Reqres API to perform basic user mana
   - Credentials:
     - **Email:** eve.holt@reqres.in
     - **Password:** cityslicka
-- On successful login, stores the authentication token and redirects to the Users List page.
+- On successful login, stores the authentication token in **localStorage** and redirects to the Users List page.
 
 ### Level 2: List All Users
 
@@ -89,46 +89,52 @@ This React application integrates with the Reqres API to perform basic user mana
 
 ## Technologies Used
 
-- **Frontend Framework:** React.js
-- **State Management:** Zustand
-- **HTTP Requests:** Axios / Fetch API
-- **Styling:** Tailwind CSS / Bootstrap / Custom CSS
-- **Routing:** React Router (if implemented)
+- **Frontend Framework: React.js** ⚛️ - The industry-standard JavaScript library for building fast, modular, and scalable user interfaces.
+- **State Management: Zustand** 🗂️ - A lightweight yet powerful state management library that keeps the application state simple and predictable.
+- **Routing: React Router** 🚀 - Enables seamless client-side navigation, improving the user experience with dynamic routing.
+- **UI Components: ShadCN** 🏗️ - A modern and customizable component library built on top of Radix UI and Tailwind CSS for a sleek and accessible interface.
+- **Styling: Tailwind CSS** 🎨 - A utility-first CSS framework that ensures rapid development, responsiveness, and a consistent design system.
+- **Form Handling: React Hook Form** 📝 - Enhances form performance with minimal re-renders, making form validation and submission efficient.
+- **Schema Validation: Zod** ✅ - Ensures data integrity with runtime schema validation, improving the robustness of user inputs.
+- **HTTP Requests: Axios** 🌐 - A promise-based HTTP client that simplifies API communication with built-in error handling and request customization.
 
 ## Error Handling
 
 - Displays appropriate messages on failed API calls.
-- Handles form validation in login and edit screens.
-- Redirects users to login if token is missing or expired.
+- Handles form validation in login and edit screens using **React Hook Form** and **Zod**.
+- Redirects users to login if the authentication token is missing or expired.
 
 ## Persistence
 
-- Login token is stored in **localStorage** or **sessionStorage**.
-- Token verification ensures secure authentication.
+- Login token is securely stored in **localStorage**.
+- Automatic token verification ensures that users remain authenticated without unnecessary re-login prompts.
 
 ## Code Quality
 
-- Modular and well-structured React components.
-- Proper use of hooks (`useState`, `useEffect`, etc.).
-- Follows best practices for maintainability.
+- Modular and well-structured React components for maintainability and scalability.
+- Proper usage of React hooks (`useState`, `useEffect`, `useNavigate`, etc.).
+- Clean, reusable, and well-documented code adhering to best practices.
 
 ## Bonus Features
 
-- **Client-side search and filtering** for users.
-- **React Router** for page navigation.
-- **Deployment on free hosting** (e.g., Vercel, Netlify, Heroku).
+- **Client-side search and filtering** for a smoother user experience.
+- **React Router** for structured and dynamic page navigation.
+- **Deployment on free hosting platforms** (e.g., Vercel, Netlify, Heroku) for easy access and scalability.
 
 ## Deployment
 
-To deploy, follow these steps:
+This application has been deployed on **Vercel** and is accessible at the following link:
+
+**Live URL:** [https://employwise.vercel.app](https://employwise.vercel.app)
+
+To deploy on your own, follow these steps:
 
 1. Build the project:
    ```sh
    npm run build
    ```
 2. Deploy using a hosting provider (e.g., Vercel, Netlify, or Heroku).
-3. Provide the deployment link here:
-   **Live URL:** [Your Deployment Link]
+3. Update the **Live URL** accordingly.
 
 ## Repository
 
