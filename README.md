@@ -1,5 +1,7 @@
 # React User Management App
 
+🚀 **Live URL:** [https://employwise-assignment-intership-assignment.vercel.app/](https://employwise-assignment-intership-assignment.vercel.app/)
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -125,7 +127,7 @@ This React application integrates with the Reqres API to perform basic user mana
 
 This application has been deployed on **Vercel** and is accessible at the following link:
 
-**Live URL:** [https://employwise.vercel.app](https://employwise.vercel.app)
+**Live URL:** [https://employwise-assignment-intership-assignment.vercel.app/](https://employwise-assignment-intership-assignment.vercel.app/)
 
 To deploy on your own, follow these steps:
 
