@@ -1,54 +1,135 @@
-# React + TypeScript + Vite
+# React User Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of Contents
 
-Currently, two official plugins are available:
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Technologies Used](#technologies-used)
+- [Error Handling](#error-handling)
+- [Persistence](#persistence)
+- [Code Quality](#code-quality)
+- [Bonus Features](#bonus-features)
+- [Deployment](#deployment)
+- [Repository](#repository)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## Expanding the ESLint configuration
+This React application integrates with the Reqres API to perform basic user management functions such as authentication, user listing, and CRUD operations. The app is divided into three levels of increasing complexity.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Base API URL
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+`https://reqres.in/`
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Level 1: Authentication
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Login screen for user authentication.
+- Uses the following endpoint:
+  - `POST /api/login` with email and password.
+  - Credentials:
+    - **Email:** eve.holt@reqres.in
+    - **Password:** cityslicka
+- On successful login, stores the authentication token and redirects to the Users List page.
+
+### Level 2: List All Users
+
+- Fetches and displays a paginated list of users.
+- Uses the following endpoint:
+  - `GET /api/users?page=1`
+- Displays user details in a table or card format.
+- Implements pagination or lazy loading.
+
+### Level 3: Edit, Delete, and Update Users
+
+- **Edit User:**
+  - Clicking 'Edit' opens a form pre-filled with user data.
+  - Allows updating first name, last name, and email.
+  - Uses endpoint: `PUT /api/users/{id}`
+- **Delete User:**
+  - Clicking 'Delete' removes the user from the list.
+  - Uses endpoint: `DELETE /api/users/{id}`
+- Displays success/error messages based on API responses.
+
+## Installation
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/khushal-mali/employwise-assignment-intership-assignment.git
+   cd employwise-assignment-intership-assignment
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Start the application:
+   ```sh
+   npm start
+   ```
+4. Open `http://localhost:3000` in your browser.
+
+## Usage
+
+- **Login:** Enter the given credentials to authenticate.
+- **Users List:** View all users in a structured layout with pagination.
+- **Edit User:** Click 'Edit', modify details, and save changes.
+- **Delete User:** Click 'Delete' to remove a user.
+
+## API Endpoints
+
+| Action      | Method | Endpoint            | Description              |
+| ----------- | ------ | ------------------- | ------------------------ |
+| Login       | POST   | `/api/login`        | User authentication      |
+| Fetch Users | GET    | `/api/users?page=1` | Retrieve paginated users |
+| Update User | PUT    | `/api/users/{id}`   | Update user details      |
+| Delete User | DELETE | `/api/users/{id}`   | Remove user from list    |
+
+## Technologies Used
+
+- **Frontend Framework:** React.js
+- **State Management:** Zustand
+- **HTTP Requests:** Axios / Fetch API
+- **Styling:** Tailwind CSS / Bootstrap / Custom CSS
+- **Routing:** React Router (if implemented)
+
+## Error Handling
+
+- Displays appropriate messages on failed API calls.
+- Handles form validation in login and edit screens.
+- Redirects users to login if token is missing or expired.
+
+## Persistence
+
+- Login token is stored in **localStorage** or **sessionStorage**.
+- Token verification ensures secure authentication.
+
+## Code Quality
+
+- Modular and well-structured React components.
+- Proper use of hooks (`useState`, `useEffect`, etc.).
+- Follows best practices for maintainability.
+
+## Bonus Features
+
+- **Client-side search and filtering** for users.
+- **React Router** for page navigation.
+- **Deployment on free hosting** (e.g., Vercel, Netlify, Heroku).
+
+## Deployment
+
+To deploy, follow these steps:
+
+1. Build the project:
+   ```sh
+   npm run build
+   ```
+2. Deploy using a hosting provider (e.g., Vercel, Netlify, or Heroku).
+3. Provide the deployment link here:
+   **Live URL:** [Your Deployment Link]
+
+## Repository
+
+GitHub Repository: [https://github.com/khushal-mali/employwise-assignment-intership-assignment.git](https://github.com/khushal-mali/employwise-assignment-intership-assignment.git)
