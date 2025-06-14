@@ -96,10 +96,18 @@ const useUserStore = create<UserStore>((set) => ({
   login: async ({ email, password }: { email: string; password: string }) => {
     try {
       set({ loading: true });
-      const { data } = await axios.post<{ token: string; user?: User }>("/login", {
-        email,
-        password,
-      });
+      const { data } = await axios.post<{ token: string; user?: User }>(
+        "/login",
+        {
+          email,
+          password,
+        },
+        {
+          headers: {
+            "x-api-key": "reqres-free-v1",
+          },
+        }
+      );
 
       localStorage.setItem("accessToken", data.token);
       toast.success("User Logged in successfully.");
@@ -157,7 +165,11 @@ const useUserStore = create<UserStore>((set) => ({
 
   getUsers: async ({ page }: { page: number }) => {
     try {
-      const { data } = await axios.get(`/users?page=${page}`);
+      const { data } = await axios.get(`/users?page=${page}`, {
+        // headers: {
+        //   "x-api-key": "reqres-free-v1",
+        // },
+      });
       set({ users: data.data, fullPageData: data });
       // console.log(data);
     } catch (error) {

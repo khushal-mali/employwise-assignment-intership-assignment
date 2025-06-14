@@ -5,4 +5,8 @@ const axiosInstance = axios.create({
   // withCredentials: true, // send cookies to the server
 });
 
+axiosInstance.defaults.headers.common = {
+  "x-api-key": "reqres-free-v1",
+};
+
 export default axiosInstance;
